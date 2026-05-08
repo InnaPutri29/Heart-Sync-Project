@@ -2,5 +2,7 @@ streamlit
 pandas
 numpy
 matplotlib
-seaborn 
+seaborn
 scikit-learn
+joblib
+Flask

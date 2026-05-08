@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Heart-Sync</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+qdLaEX8f0pzYwP1m1g38OaJb5mmx5m/e1gm60q8wQ4LDpn2tE3tZI6t93a7DKz6" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='style.css') }}?t={{ config['TIMESTAMP'] }}" rel="stylesheet">
+    <style>
+      /* Fallback CSS jika file external tidak terbaca */
+      :root { color-scheme: light; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      body { background: #f6f9ff; min-height: 100vh; }
+      .content-wrapper { padding-top: 100px; }
+      .navbar-brand { color: #0f3c81 !important; }
+      .hero-section { background: linear-gradient(135deg, #eef4ff 0%, #ffffff 100%); }
+      .btn-primary { background-color: #0f3c81; border-color: #0f3c81; }
+      .btn-primary:hover { background-color: #0c3469; border-color: #0c3469; }
+      .hero-card, .feature-box, .info-card, .result-card, .team-card, .info-panel {
+        border: 1px solid rgba(15, 60, 129, 0.08);
+      }
+      .info-card h2, .feature-box h4, .team-card h5, .info-panel h4 { color: #0f3c81; }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">❤️ Heart-Sync</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if active_page == 'home' %}active{% endif %}" href="/">🏠 Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if active_page == 'prediksi' %}active{% endif %}" href="/prediksi">🔍
+                            Prediksi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if active_page == 'info' %}active{% endif %}" href="/info">ℹ️ Info
+                            Model</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if active_page == 'team' %}active{% endif %}" href="/team">👥 Tim Kami</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-wrapper py-5">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="footer py-4 mt-5 bg-white border-top">
+        <div class="container text-center text-muted">
+            ❤️ Heart-Sync &copy; 2026 · Deteksi dini risiko penyakit jantung menggunakan Machine Learning
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6OyXbDMKC0K165daQ7G+qtpLDe5C6Rp72K5MP6YBtTqcgygp4X9"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

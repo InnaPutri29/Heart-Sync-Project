@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row gy-5">
+  <div class="col-lg-6">
+    <div class="card shadow-sm rounded-4 p-4">
+      <h2 class="fw-bold">📋 Form Prediksi Risiko Jantung</h2>
+      <form method="post" action="/prediksi">
+        <h5 class="mt-4 mb-3">📊 Data Pribadi</h5>
+        <div class="mb-3">
+          <label class="form-label">Jenis Kelamin</label>
+          <select class="form-select" name="sex">
+            <option {% if data.sex == 'Laki-laki' %}selected{% endif %}>Laki-laki</option>
+            <option {% if data.sex == 'Perempuan' %}selected{% endif %}>Perempuan</option>
+          </select>
+        </div>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label class="form-label">Umur (tahun)</label>
+            <input type="number" class="form-control" name="age" min="1" max="120" value="{{ data.age or 45 }}">
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label">Tinggi (cm)</label>
+            <input type="number" class="form-control" name="height" min="100" max="220" value="{{ data.height or 170 }}">
+          </div>
+        </div>
+        <div class="row g-3 mt-3">
+          <div class="col-sm-6">
+            <label class="form-label">Berat (kg)</label>
+            <input type="number" class="form-control" name="weight" min="30" max="180" value="{{ data.weight or 70 }}">
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label">Status Kesehatan Umum</label>
+            <select class="form-select" name="health_status">
+              <option {% if data.health_status == 'Baik' %}selected{% endif %}>Baik</option>
+              <option {% if data.health_status == 'Cukup' %}selected{% endif %}>Cukup</option>
+              <option {% if data.health_status == 'Kurang' %}selected{% endif %}>Kurang</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+        <h5 class="mt-4 mb-3">🏥 Riwayat Medis</h5>
+        <div class="mb-3">
+          <label class="form-label">Tekanan Darah Istirahat (mmHg)</label>
+          <input type="number" class="form-control" name="trestbps" min="80" max="220" value="{{ data.trestbps or 120 }}" placeholder="Contoh: 120">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Kolesterol Total (mg/dL)</label>
+          <input type="number" class="form-control" name="chol" min="100" max="400" value="{{ data.chol or 200 }}" placeholder="Contoh: 200">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Gula Darah Puasa Tinggi?</label>
+          <select class="form-select" name="fbs">
+            <option {% if data.fbs == 'Tidak' %}selected{% endif %}>Tidak (&lt; 120 mg/dL)</option>
+            <option {% if data.fbs == 'Ya' %}selected{% endif %}>Ya (&gt; 120 mg/dL)</option>
+          </select>
+        </div>
+        <div class="form-check mt-3">
+          <input class="form-check-input" type="checkbox" name="diabetes" id="diabetes" {% if data.diabetes %}checked{% endif %}>
+          <label class="form-check-label" for="diabetes"><strong>Riwayat Diabetes</strong></label>
+        </div>
+        <hr>
+        <h5 class="mt-4 mb-3">🏃 Gaya Hidup</h5>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label class="form-label">Kebiasaan Merokok</label>
+            <select class="form-select" name="smoking">
+              <option {% if data.smoking == 'Tidak Pernah' %}selected{% endif %}>Tidak Pernah</option>
+              <option {% if data.smoking == 'Kadang-kadang' %}selected{% endif %}>Kadang-kadang</option>
+              <option {% if data.smoking == 'Sering' %}selected{% endif %}>Sering</option>
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label">Konsumsi Alkohol</label>
+            <select class="form-select" name="alcohol">
+              <option {% if data.alcohol == 'Tidak Pernah' %}selected{% endif %}>Tidak Pernah</option>
+              <option {% if data.alcohol == 'Kadang-kadang' %}selected{% endif %}>Kadang-kadang</option>
+              <option {% if data.alcohol == 'Sering' %}selected{% endif %}>Sering</option>
+            </select>
+          </div>
+        </div>
+        <div class="row g-3 mt-3">
+          <div class="col-sm-6">
+            <label class="form-label">Porsi Buah & Sayur / hari</label>
+            <input type="number" class="form-control" name="fruits_veg" min="0" max="10" value="{{ data.fruits_veg or 3 }}">
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label">Makanan Goreng / minggu</label>
+            <input type="number" class="form-control" name="fried_food" min="0" max="21" value="{{ data.fried_food or 2 }}">
+          </div>
+        </div>
+        <div class="mb-3 mt-3">
+          <label class="form-label">Frekuensi Olahraga</label>
+          <select class="form-select" name="exercise">
+            <option {% if data.exercise == 'Tidak Pernah' %}selected{% endif %}>Tidak Pernah</option>
+            <option {% if data.exercise == '1-2x/minggu' %}selected{% endif %}>1-2x / minggu</option>
+            <option {% if data.exercise == '3-4x/minggu' %}selected{% endif %}>3-4x / minggu</option>
+            <option {% if data.exercise == '5x/minggu+' %}selected{% endif %}>5x / minggu atau lebih</option>
+          </select>
+        </div>
+        <hr>
+        <h5 class="mt-4 mb-3">⚕️ Faktor Kesehatan Tambahan</h5>
+        <div class="row g-3 mt-3">
+          <div class="col-sm-6">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="cancer" id="cancer" {% if data.cancer %}checked{% endif %}>
+              <label class="form-check-label" for="cancer">Riwayat Kanker</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="depression" id="depression" {% if data.depression %}checked{% endif %}>
+              <label class="form-check-label" for="depression">Depresi</label>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3 mt-3">
+          <label class="form-label">Terakhir Pemeriksaan Kesehatan</label>
+          <select class="form-select" name="last_checkup">
+            <option {% if data.last_checkup == 'Kurang dari 1 tahun' %}selected{% endif %}>Kurang dari 1 tahun</option>
+            <option {% if data.last_checkup == '1-2 tahun' %}selected{% endif %}>1-2 tahun</option>
+            <option {% if data.last_checkup == '3-5 tahun' %}selected{% endif %}>3-5 tahun</option>
+            <option {% if data.last_checkup == '> 5 tahun' %}selected{% endif %}>> 5 tahun</option>
+            <option {% if data.last_checkup == 'Tidak pernah' %}selected{% endif %}>Tidak pernah</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg mt-4 w-100">🔍 Lihat Hasil Prediksi</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    {% if result %}
+    <div class="result-card p-4 rounded-4 shadow-sm bg-white">
+      <h2 class="fw-bold">📊 Hasil Prediksi</h2>
+      <div class="alert alert-{{ result.color }} mt-3" role="alert">
+        <h4 class="alert-heading">{{ result.label }}</h4>
+        <p>{{ result.message }}</p>
+      </div>
+      <div class="row g-3 mt-3">
+        <div class="col-sm-4">
+          <div class="score-box p-3 rounded-4 bg-light text-center">
+            <h6 class="text-secondary">Risiko Akhir</h6>
+            <p class="fs-4 mb-0 fw-bold">{{ result.final_risk }}</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="score-box p-3 rounded-4 bg-light text-center">
+            <h6 class="text-secondary">Skor ML</h6>
+            <p class="fs-4 mb-0 fw-bold">{{ result.ml_probability }}</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="score-box p-3 rounded-4 bg-light text-center">
+            <h6 class="text-secondary">Gaya Hidup</h6>
+            <p class="fs-4 mb-0 fw-bold">{{ result.lifestyle_risk }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <h5>📋 Rangkuman Data Input</h5>
+        <ul class="list-unstyled text-secondary small">
+          <li><strong>Umur:</strong> {{ data.age }} tahun</li>
+          <li><strong>BMI:</strong> {{ data.bmi }} kg/m²</li>
+          <li><strong>Tekanan Darah:</strong> {{ data.trestbps }} mmHg</li>
+          <li><strong>Kolesterol:</strong> {{ data.chol }} mg/dL</li>
+          <li><strong>Gula Darah Puasa:</strong> {{ data.fbs }}</li>
+        </ul>
+      </div>
+      <a href="/prediksi" class="btn btn-outline-primary mt-3">🔄 Prediksi Ulang</a>
+    </div>
+    {% else %}
+    <div class="card shadow-sm rounded-4 p-4 bg-white">
+      <h5 class="fw-bold">🎯 Mulai Analisis Kesehatan</h5>
+      <p class="text-secondary mt-3">Isi formulir di sebelah kiri dengan data kesehatan dan gaya hidup Anda untuk mendapatkan estimasi risiko penyakit jantung berbasis model Machine Learning.</p>
+      <div class="alert alert-info mt-3" role="alert">
+        <strong>💡 Tips:</strong> Pastikan data yang Anda masukkan akurat untuk hasil prediksi yang lebih baik.
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

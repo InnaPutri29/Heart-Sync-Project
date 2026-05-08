@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="hero-section py-5">
+  <div class="row align-items-center">
+    <div class="col-lg-7">
+      <h1 class="display-5 fw-bold">❤️ Heart-Sync</h1>
+      <p class="lead text-secondary">Platform kesehatan jantung berbasis Machine Learning yang menggabungkan analisis data medis dengan penilaian gaya hidup untuk deteksi dini risiko penyakit jantung.</p>
+      <div class="d-flex gap-3 flex-wrap">
+        <a href="/prediksi" class="btn btn-primary btn-lg">🚀 Mulai Prediksi</a>
+        <a href="/info" class="btn btn-outline-primary btn-lg">📚 Pelajari Model</a>
+      </div>
+      <div class="row mt-5 g-3 stats-row">
+        <div class="col-sm-4">
+          <div class="info-card p-4 shadow-sm rounded-4">
+            <h2>99%</h2>
+            <p>Akurasi Model</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="info-card p-4 shadow-sm rounded-4">
+            <h2>10+</h2>
+            <p>Parameter Analisis</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="info-card p-4 shadow-sm rounded-4">
+            <h2>3</h2>
+            <p>Kategori Input</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 mt-4 mt-lg-0">
+      <div class="hero-card p-4 rounded-4 shadow-sm bg-white">
+        <h3 class="fw-bold">🏥 Aplikasi Deteksi Dini Jantung</h3>
+        <p class="text-secondary">Masukkan data kesehatan, gaya hidup, dan riwayat medis untuk mendapatkan estimasi risiko penyakit jantung secara akurat dan cepat.</p>
+        <ul class="list-unstyled text-secondary">
+          <li class="mb-2">✅ Prediksi risiko instan berbasis AI</li>
+          <li class="mb-2">✅ Antarmuka modern dan responsif</li>
+          <li>✅ Rekomendasi gaya hidup sehat</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-lg-4">
+    <div class="feature-box p-4 rounded-4 shadow-sm bg-white">
+      <h4>🎨 Desain Intuitif</h4>
+      <p>Antarmuka biru elegan yang profesional, mudah dipahami, dan ramah pengguna untuk semua kalangan.</p>
+    </div>
+  </div>
+  <div class="col-lg-4 mt-4 mt-lg-0">
+    <div class="feature-box p-4 rounded-4 shadow-sm bg-white">
+      <h4>🔬 Data Medis & Lifestyle</h4>
+      <p>Prediksi komprehensif menggabungkan 5 parameter medis utama dengan 10+ faktor gaya hidup dan riwayat kesehatan.</p>
+    </div>
+  </div>
+  <div class="col-lg-4 mt-4 mt-lg-0">
+    <div class="feature-box p-4 rounded-4 shadow-sm bg-white">
+      <h4>🩺 Skrining Mandiri</h4>
+      <p>Aplikasi ideal untuk pemeriksaan kesehatan preventif sebelum berkonsultasi dengan dokter spesialis.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
