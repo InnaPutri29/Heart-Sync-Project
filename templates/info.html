@@ -1,37 +1,63 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="card rounded-4 shadow-sm p-4 bg-white">
-  <h1 class="fw-bold">ℹ️ Informasi Model Heart-Sync</h1>
-  <p class="lead text-secondary">Heart-Sync menggunakan model Random Forest yang dilatih pada dataset kesehatan jantung komprehensif. Hasil prediksi menggabungkan analisis data medis dengan penilaian faktor gaya hidup untuk akurasi maksimal.</p>
-  <div class="row gx-4 gy-4 mt-4">
-    <div class="col-md-6">
-      <div class="info-panel p-4 rounded-4 bg-light">
-        <h4>📊 Parameter Medis Utama</h4>
-        <ul>
-          <li>Umur (Age)</li>
-          <li>Jenis Kelamin (Sex)</li>
-          <li>Tekanan Darah Istirahat (Resting Blood Pressure)</li>
-          <li>Kolesterol (Cholesterol)</li>
-          <li>Gula Darah Puasa (Fasting Blood Sugar)</li>
+<style>
+  .info-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(15, 112, 222, 0.02) 100%);
+  }
+</style>
+
+<div class="max-w-5xl mx-auto">
+  <div class="info-card rounded-3xl p-10 shadow-lg border border-slate-200">
+    <h1 class="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">ℹ️ Informasi Model Heart-Sync</h1>
+    <p class="text-lg text-slate-600 font-medium mt-6 leading-relaxed">Heart-Sync menggunakan model <strong>Random Forest</strong> yang dilatih pada dataset kesehatan jantung komprehensif. Hasil prediksi menggabungkan analisis data medis dengan penilaian faktor gaya hidup untuk akurasi maksimal.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+      <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-2xl border-2 border-primary/30">
+        <h4 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2">📊 Parameter Medis Utama</h4>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3 text-slate-700 font-semibold"><span class="text-primary">✓</span> Umur (Age)</li>
+          <li class="flex items-center gap-3 text-slate-700 font-semibold"><span class="text-primary">✓</span> Jenis Kelamin (Sex)</li>
+          <li class="flex items-center gap-3 text-slate-700 font-semibold"><span class="text-primary">✓</span> Tekanan Darah Istirahat</li>
+          <li class="flex items-center gap-3 text-slate-700 font-semibold"><span class="text-primary">✓</span> Kolesterol (Cholesterol)</li>
+          <li class="flex items-center gap-3 text-slate-700 font-semibold"><span class="text-primary">✓</span> Gula Darah Puasa (FBS)</li>
         </ul>
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="info-panel p-4 rounded-4 bg-light">
-        <h4>🏃 Faktor Gaya Hidup</h4>
-        <p>Prediksi juga mempertimbangkan kebiasaan merokok, konsumsi alkohol, frekuensi olahraga, pola makan, dan riwayat kesehatan untuk hasil yang lebih komprehensif dan relevan.</p>
+
+      <div class="bg-gradient-to-br from-secondary/5 to-secondary/10 p-8 rounded-2xl border-2 border-secondary/30">
+        <h4 class="text-2xl font-bold text-secondary mb-6 flex items-center gap-2">🏃 Faktor Gaya Hidup</h4>
+        <p class="text-slate-700 font-medium leading-relaxed">Prediksi juga mempertimbangkan kebiasaan merokok, konsumsi alkohol, frekuensi olahraga, pola makan, dan riwayat kesehatan untuk hasil yang lebih komprehensif dan relevan dengan kondisi pasien.</p>
       </div>
     </div>
-  </div>
-  <div class="mt-4 p-4 rounded-4 bg-white shadow-sm border">
-    <h4>🔬 Bagaimana Hasil Dihitung?</h4>
-    <ol>
-      <li><strong>Prediksi ML:</strong> Model Random Forest memproses 5 parameter medis utama untuk menghasilkan probabilitas risiko.</li>
-      <li><strong>Skor Gaya Hidup:</strong> Sistem penilaian terintegrasi menganalisis 10+ faktor gaya hidup dan riwayat kesehatan.</li>
-      <li><strong>Hasil Akhir:</strong> Dua skor digabungkan dengan bobot 70% untuk ML dan 30% untuk gaya hidup, menghasilkan estimasi risiko komprehensif.</li>
-    </ol>
-    <div class="alert alert-warning mt-3" role="alert">
-      <strong>⚠️ Penting:</strong> Aplikasi ini untuk skrining mandiri. Konsultasikan hasil dengan dokter spesialis untuk diagnosis dan rekomendasi medis yang akurat.
+
+    <div class="mt-10 bg-gradient-to-br from-slate-50 to-slate-100 border-l-4 border-primary p-8 rounded-2xl">
+      <h4 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">🔬 Bagaimana Hasil Dihitung?</h4>
+      <div class="space-y-6">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">1</div>
+          <div>
+            <h5 class="font-bold text-slate-900 text-lg">Prediksi ML</h5>
+            <p class="text-slate-700 font-medium mt-1">Model Random Forest memproses 5 parameter medis utama untuk menghasilkan probabilitas risiko penyakit jantung.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center font-bold">2</div>
+          <div>
+            <h5 class="font-bold text-slate-900 text-lg">Skor Gaya Hidup</h5>
+            <p class="text-slate-700 font-medium mt-1">Sistem penilaian terintegrasi menganalisis 10+ faktor gaya hidup dan riwayat kesehatan untuk konteks yang lebih baik.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">3</div>
+          <div>
+            <h5 class="font-bold text-slate-900 text-lg">Hasil Akhir</h5>
+            <p class="text-slate-700 font-medium mt-1">Dua skor digabungkan dengan bobot 70% untuk ML dan 30% untuk gaya hidup, menghasilkan estimasi risiko komprehensif.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-300 rounded-2xl">
+      <p class="text-sm text-yellow-900 font-semibold flex items-start gap-3"><span class="text-2xl">⚠️</span><span><strong>Penting:</strong> Aplikasi ini untuk skrining mandiri dan edukasi kesehatan. Selalu konsultasikan hasil dengan dokter spesialis untuk diagnosis dan rekomendasi medis yang akurat dan profesional.</span></p>
     </div>
   </div>
 </div>

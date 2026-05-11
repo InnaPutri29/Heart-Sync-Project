@@ -1,66 +1,129 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="hero-section py-5">
-  <div class="row align-items-center">
-    <div class="col-lg-7">
-      <h1 class="display-5 fw-bold">❤️ Heart-Sync</h1>
-      <p class="lead text-secondary">Platform kesehatan jantung berbasis Machine Learning yang menggabungkan analisis data medis dengan penilaian gaya hidup untuk deteksi dini risiko penyakit jantung.</p>
-      <div class="d-flex gap-3 flex-wrap">
-        <a href="/prediksi" class="btn btn-primary btn-lg">🚀 Mulai Prediksi</a>
-        <a href="/info" class="btn btn-outline-primary btn-lg">📚 Pelajari Model</a>
+
+<style>
+  .text-gradient {
+    background: linear-gradient(90deg, #0f70de, #0dcaf0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .btn-primary-gradient {
+    background: linear-gradient(45deg, #0f70de, #0dcaf0);
+    border: none;
+    color: white;
+  }
+
+  .btn-primary-gradient:hover {
+    box-shadow: 0 5px 15px rgba(15, 112, 222, 0.4);
+    transform: scale(1.05);
+    color: white;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-image {
+    border-radius: 2rem;
+    border: 8px solid #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    object-fit: cover;
+    width: 100%;
+    max-height: 450px;
+  }
+
+  .hero-image:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(15, 112, 222, 0.15);
+  }
+
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    70% { transform: scale(1); }
+  }
+
+  .heart-animated {
+    font-size: 130px;
+    color: #9e1522;
+    animation: heartbeat 1.5s infinite;
+  }
+</style>
+
+<!-- Hero Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+  <div>
+    <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+      Prediksi Risiko <br><span class="text-gradient">Penyakit Jantung</span>
+    </h1>
+    <p class="text-lg text-slate-600 font-medium mb-8 max-w-2xl">
+      Optimalkan kesehatan Anda dengan <strong>Heart-Sync</strong>. Platform cerdas berbasis <i>Random Forest Machine Learning</i> untuk deteksi dini yang akurat, cepat, dan mudah dipahami.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+      <a href="/prediksi" class="btn-primary-gradient px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition">
+        🚀 Mulai Analisis Sekarang
+      </a>
+      <a href="/info" class="px-8 py-3 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition">
+        📚 Pelajari Model AI
+      </a>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4">
+      <div class="glass-card p-4 rounded-2xl text-center lg:text-left">
+        <h2 class="text-3xl font-bold text-primary mb-0">99%</h2>
+        <p class="text-slate-600 font-semibold text-sm mb-0">Akurasi Model</p>
       </div>
-      <div class="row mt-5 g-3 stats-row">
-        <div class="col-sm-4">
-          <div class="info-card p-4 shadow-sm rounded-4">
-            <h2>99%</h2>
-            <p>Akurasi Model</p>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="info-card p-4 shadow-sm rounded-4">
-            <h2>10+</h2>
-            <p>Parameter Analisis</p>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="info-card p-4 shadow-sm rounded-4">
-            <h2>3</h2>
-            <p>Kategori Input</p>
-          </div>
-        </div>
+      <div class="glass-card p-4 rounded-2xl text-center lg:text-left">
+        <h2 class="text-3xl font-bold text-primary mb-0">10+</h2>
+        <p class="text-slate-600 font-semibold text-sm mb-0">Fitur Analisis</p>
+      </div>
+      <div class="glass-card p-4 rounded-2xl text-center lg:text-left">
+        <h2 class="text-3xl font-bold text-primary mb-0">Instan</h2>
+        <p class="text-slate-600 font-semibold text-sm mb-0">Hasil Prediksi</p>
       </div>
     </div>
-    <div class="col-lg-5 mt-4 mt-lg-0">
-      <div class="hero-card p-4 rounded-4 shadow-sm bg-white">
-        <h3 class="fw-bold">🏥 Aplikasi Deteksi Dini Jantung</h3>
-        <p class="text-secondary">Masukkan data kesehatan, gaya hidup, dan riwayat medis untuk mendapatkan estimasi risiko penyakit jantung secara akurat dan cepat.</p>
-        <ul class="list-unstyled text-secondary">
-          <li class="mb-2">✅ Prediksi risiko instan berbasis AI</li>
-          <li class="mb-2">✅ Antarmuka modern dan responsif</li>
-          <li>✅ Rekomendasi gaya hidup sehat</li>
-        </ul>
-      </div>
+  </div>
+
+  <div class="text-center">
+    <img src="https://pharmaphorum.com/wp-content/uploads/2022/05/Healthcare-communication.jpg" alt="Ilustrasi Pemeriksaan Kesehatan Jantung" class="hero-image">
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="mt-20 pt-12 border-t border-slate-200">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-bold text-slate-900">Keunggulan Heart-Sync</h2>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="glass-card p-8 rounded-2xl text-center h-full">
+      <span class="text-5xl mb-4 block">🎨</span>
+      <h4 class="text-xl font-bold mb-3">Antarmuka Modern</h4>
+      <p class="text-slate-600 font-medium">Desain elegan yang bersih dan profesional, dirancang khusus untuk kenyamanan pengguna di bidang medis.</p>
+    </div>
+    <div class="glass-card p-8 rounded-2xl text-center h-full border-2 border-primary">
+      <span class="text-5xl mb-4 block">🔬</span>
+      <h4 class="text-xl font-bold mb-3">Analisis Komprehensif</h4>
+      <p class="text-slate-600 font-medium">Menggabungkan parameter klinis utama (Tekanan darah, Kolesterol) untuk hasil klasifikasi yang lebih stabil.</p>
+    </div>
+    <div class="glass-card p-8 rounded-2xl text-center h-full">
+      <span class="text-5xl mb-4 block">🩺</span>
+      <h4 class="text-xl font-bold mb-3">Skrining Mandiri</h4>
+      <p class="text-slate-600 font-medium">Solusi preventif cerdas yang membantu Anda melakukan pengecekan kesehatan awal tanpa biaya.</p>
     </div>
   </div>
 </div>
-<div class="row mt-5">
-  <div class="col-lg-4">
-    <div class="feature-box p-4 rounded-4 shadow-sm bg-white">
-      <h4>🎨 Desain Intuitif</h4>
-      <p>Antarmuka biru elegan yang profesional, mudah dipahami, dan ramah pengguna untuk semua kalangan.</p>
-    </div>
-  </div>
-  <div class="col-lg-4 mt-4 mt-lg-0">
-    <div class="feature-box p-4 rounded-4 shadow-sm bg-white">
-      <h4>🔬 Data Medis & Lifestyle</h4>
-      <p>Prediksi komprehensif menggabungkan 5 parameter medis utama dengan 10+ faktor gaya hidup dan riwayat kesehatan.</p>
-    </div>
-  </div>
-  <div class="col-lg-4 mt-4 mt-lg-0">
-    <div class="feature-box p-4 rounded-4 shadow-sm bg-white">
-      <h4>🩺 Skrining Mandiri</h4>
-      <p>Aplikasi ideal untuk pemeriksaan kesehatan preventif sebelum berkonsultasi dengan dokter spesialis.</p>
-    </div>
-  </div>
-</div>
+
 {% endblock %}

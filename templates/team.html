@@ -1,38 +1,60 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="card rounded-4 shadow-sm p-4 bg-white">
-  <h1 class="fw-bold">👥 Profil Tim Heart-Sync</h1>
-  <p class="text-secondary">Tim ini berkomitmen untuk menyajikan solusi kesehatan jantung berbasis teknologi AI dengan pengalaman pengguna yang intuitif, informatif, dan dapat diandalkan untuk mendukung deteksi dini penyakit jantung.</p>
-  <div class="row gx-4 gy-4 mt-4">
-    <div class="col-md-4">
-      <div class="team-card p-4 rounded-4 bg-light text-center">
-        <div class="avatar mb-3">💻</div>
-        <h5>Pengembang</h5>
-        <p class="text-secondary">Pengembangan Full Stack</p>
-        <small class="text-secondary">Membangun aplikasi Flask dan integrasi model ML</small>
-      </div>
+<style>
+  .team-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(13, 202, 240, 0.02) 100%);
+    transition: all 0.3s ease;
+  }
+  .team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(15, 112, 222, 0.15);
+  }
+</style>
+
+<div class="max-w-5xl mx-auto">
+  <div class="text-center mb-12">
+    <h1 class="text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">👥 Profil Tim Heart-Sync</h1>
+    <p class="text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">Tim ini berkomitmen untuk menyajikan solusi kesehatan jantung berbasis teknologi AI dengan pengalaman pengguna yang intuitif, informatif, dan dapat diandalkan untuk mendukung deteksi dini penyakit jantung.</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+    <div class="team-card p-8 rounded-2xl shadow-lg border border-slate-200">
+      <div class="text-6xl mb-6 text-center">💻</div>
+      <h5 class="text-2xl font-bold text-slate-900 mb-3 text-center">Pengembang</h5>
+      <p class="text-primary font-bold text-center mb-3">Pengembangan Full Stack</p>
+      <p class="text-slate-600 font-medium text-center">Membangun aplikasi Flask yang responsif dan integrasi seamless dengan model Machine Learning untuk pengalaman pengguna terbaik.</p>
     </div>
-    <div class="col-md-4">
-      <div class="team-card p-4 rounded-4 bg-light text-center">
-        <div class="avatar mb-3">📊</div>
-        <h5>Data Scientist</h5>
-        <p class="text-secondary">Analisis & Machine Learning</p>
-        <small class="text-secondary">Pelatihan model Random Forest dan validasi akurasi</small>
+
+    <div class="team-card p-8 rounded-2xl shadow-lg border border-slate-200 transform scale-105">
+      <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-primary to-secondary text-white px-4 py-1 rounded-full text-xs font-bold">
+        Tim Utama
       </div>
+      <div class="text-6xl mb-6 text-center">📊</div>
+      <h5 class="text-2xl font-bold text-slate-900 mb-3 text-center">Data Scientist</h5>
+      <p class="text-secondary font-bold text-center mb-3">Analisis & Machine Learning</p>
+      <p class="text-slate-600 font-medium text-center">Pelatihan model Random Forest, validasi akurasi 99%, dan continuous improvement untuk hasil prediksi yang optimal dan terpercaya.</p>
     </div>
-    <div class="col-md-4">
-      <div class="team-card p-4 rounded-4 bg-light text-center">
-        <div class="avatar mb-3">🎨</div>
-        <h5>UI/UX Designer</h5>
-        <p class="text-secondary">Desain & Antarmuka</p>
-        <small class="text-secondary">Menciptakan pengalaman pengguna yang elegan dan responsif</small>
-      </div>
+
+    <div class="team-card p-8 rounded-2xl shadow-lg border border-slate-200">
+      <div class="text-6xl mb-6 text-center">🎨</div>
+      <h5 class="text-2xl font-bold text-slate-900 mb-3 text-center">UI/UX Designer</h5>
+      <p class="text-accent font-bold text-center mb-3">Desain & Antarmuka</p>
+      <p class="text-slate-600 font-medium text-center">Menciptakan pengalaman pengguna yang elegan, intuitif, dan responsif di semua perangkat untuk kemudahan penggunaan maksimal.</p>
     </div>
   </div>
-  <div class="mt-5 p-4 rounded-4 bg-light">
-    <h4>🎯 Visi & Misi</h4>
-    <p><strong>Visi:</strong> Menjadi solusi terdepan dalam deteksi dini penyakit jantung melalui teknologi AI yang accessible untuk semua kalangan.</p>
-    <p><strong>Misi:</strong> Memberdayakan masyarakat dengan alat skrining kesehatan yang akurat, mudah digunakan, dan gratis untuk meningkatkan kesadaran kesehatan preventif.</p>
+
+  <div class="bg-gradient-to-br from-primary/5 to-secondary/5 border-2 border-primary/20 p-12 rounded-3xl shadow-lg">
+    <h4 class="text-4xl font-bold text-slate-900 mb-10 text-center">🎯 Visi & Misi</h4>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="bg-white p-8 rounded-2xl shadow-md border-l-4 border-primary">
+        <h5 class="text-2xl font-bold text-primary mb-4">✨ Visi</h5>
+        <p class="text-slate-700 font-medium leading-relaxed">Menjadi solusi terdepan dalam deteksi dini penyakit jantung melalui teknologi AI yang accessible, terjangkau, dan mudah digunakan untuk semua kalangan masyarakat tanpa terkecuali.</p>
+      </div>
+      <div class="bg-white p-8 rounded-2xl shadow-md border-l-4 border-secondary">
+        <h5 class="text-2xl font-bold text-secondary mb-4">🚀 Misi</h5>
+        <p class="text-slate-700 font-medium leading-relaxed">Memberdayakan masyarakat dengan alat skrining kesehatan yang akurat, mudah digunakan, dan gratis untuk meningkatkan kesadaran kesehatan preventif dan deteksi dini penyakit jantung.</p>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
