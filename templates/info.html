@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<div class="max-w-5xl mx-auto space-y-8 px-4 lg:px-0">
+<div class="max-w-5xl mx-auto space-y-8 px-4 lg:px-0 animate-fade-in-up">
 
   <div class="text-center py-6">
     <div class="text-xs font-bold tracking-widest text-primary uppercase mb-2">Heart-Sync · Model Info</div>
@@ -17,45 +16,38 @@
     </p>
   </div>
 
-  <!-- Model Metrics -->
   <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-sm">
     <div class="text-xs font-bold tracking-widest text-primary uppercase mb-2">Performa Model</div>
     <h2 class="text-xl sm:text-2xl font-bold text-slate-800 mb-6 sm:mb-8">Metrik Evaluasi — RF Final (Tuned, 9 Fitur)</h2>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
       <div
         class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
-        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">97.0%
-        </div>
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">97.0%</div>
         <div class="text-xs font-bold text-slate-600 mt-2">Accuracy</div>
       </div>
       <div
         class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
-        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">98.1%
-        </div>
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">98.1%</div>
         <div class="text-xs font-bold text-slate-600 mt-2">Recall</div>
       </div>
       <div
         class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
-        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">96.2%
-        </div>
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">96.2%</div>
         <div class="text-xs font-bold text-slate-600 mt-2">Precision</div>
       </div>
       <div
         class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
-        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">97.1%
-        </div>
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">97.1%</div>
         <div class="text-xs font-bold text-slate-600 mt-2">F1-Score</div>
       </div>
       <div
         class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
-        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">99.5%
-        </div>
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">99.5%</div>
         <div class="text-xs font-bold text-slate-600 mt-2">ROC-AUC</div>
       </div>
       <div
         class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
-        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">98.3%
-        </div>
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">98.3%</div>
         <div class="text-xs font-bold text-slate-600 mt-2">CV Recall</div>
       </div>
     </div>
@@ -64,7 +56,6 @@
     </p>
   </div>
 
-  <!-- 9 Selected Features -->
   <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-sm">
     <div class="text-xs font-bold tracking-widest text-primary uppercase mb-2">Input Model</div>
     <h2 class="text-xl sm:text-2xl font-bold text-slate-800 mb-2">9 Fitur Klinis Terpilih</h2>
@@ -166,7 +157,6 @@
     </div>
   </div>
 
-  <!-- Prediction Flow -->
   <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-sm">
     <div class="text-xs font-bold tracking-widest text-primary uppercase mb-2">Cara Kerja</div>
     <h2 class="text-xl sm:text-2xl font-bold text-slate-800 mb-6 sm:mb-8">Alur Prediksi Heart-Sync</h2>
@@ -210,7 +200,36 @@
     </div>
   </div>
 
-  <!-- Warning -->
+  <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-sm">
+    <div class="text-xs font-bold tracking-widest text-primary uppercase mb-2">Interpretasi Medis</div>
+    <h2 class="text-xl sm:text-2xl font-bold text-slate-800 mb-2">💡 Panduan Membaca Kecenderungan Risiko</h2>
+    <p class="text-slate-600 font-medium text-sm mb-6">
+      Berikut adalah ringkasan pola kecenderungan arah parameter klinis yang dipelajari oleh model AI selama proses training:
+    </p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 space-y-3">
+        <span class="font-bold text-slate-900 flex items-center gap-2 text-base">
+          <span class="text-xl">📈</span> Indikator Semakin BESAR = Risiko Naik
+        </span>
+        <ul class="list-disc list-inside text-xs sm:text-sm text-slate-600 space-y-2 leading-relaxed">
+          <li><strong class="text-slate-800">Detak Jantung Maksimal (thalach):</strong> Nilai tinggi (rentang 160–200) mendominasi kelompok klinis dengan risiko penyakit jantung tinggi.</li>
+          <li><strong class="text-slate-800">Kondisi/Tipe Nyeri Dada (cp):</strong> Jenis nyeri dada yang dirasakan semakin berat, menekan, dan menjalar (Typical Angina) menaikkan kecenderungan risiko.</li>
+        </ul>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 space-y-3">
+        <span class="font-bold text-slate-900 flex items-center gap-2 text-base">
+          <span class="text-xl">📉</span> Indikator Semakin KECIL = Risiko Naik
+        </span>
+        <ul class="list-disc list-inside text-xs sm:text-sm text-slate-600 space-y-2 leading-relaxed">
+          <li><strong class="text-slate-800">Pembuluh Darah Utama (ca):</strong> Angka minimal (0 pembuluh darah terbuka/tersumbat total) adalah pemicu kelas risiko tertinggi.</li>
+          <li><strong class="text-slate-800">Tingkat Penurunan Grafik EKG (oldpeak):</strong> Nilai depresi grafik yang sangat rendah atau mendekati 0.0 cenderung berpusat di kelompok risiko tinggi.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <div
     class="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-300 rounded-2xl p-5 flex flex-col sm:flex-row gap-3 sm:gap-4 items-start shadow-sm">
     <span class="text-3xl flex-shrink-0 mt-0.5">⚠️</span>

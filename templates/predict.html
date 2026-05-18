@@ -13,15 +13,12 @@
   </div>
 
   {% if result %}
-  <!-- Hasil Analisis Medis -->
   <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 text-center">
     <h2 class="text-xl sm:text-2xl font-bold text-slate-800 mb-6">Hasil Analisis Medis</h2>
     <div class="inline-block p-6 sm:p-8 rounded-full mb-6 {% if result.color == 'danger' %}bg-red-50 text-red-600{% else %}bg-emerald-50 text-emerald-600{% endif %}">
-      <!-- Penyesuaian teks persentase -->
       <span class="text-4xl sm:text-5xl md:text-6xl font-black">{{ result.probability }}</span>
       <p class="text-xs sm:text-sm font-bold uppercase tracking-widest mt-2">Probabilitas</p>
     </div>
-    <!-- Penyesuaian teks label (Tinggi/Rendah) -->
     <h3 class="text-2xl sm:text-3xl font-extrabold {% if result.color == 'danger' %}text-red-700{% else %}text-emerald-700{% endif %} mb-4">
       {{ result.label }}
     </h3>
@@ -32,7 +29,6 @@
   </div>
   {% endif %}
 
-  <!-- Card Input Form -->
   <div class="bg-white rounded-3xl p-6 sm:p-12 shadow-xl border border-slate-200">
     <div class="mb-10 text-center">
       <h2 class="text-xl sm:text-2xl font-bold text-slate-800">📋 Input Parameter Klinis</h2>
@@ -41,72 +37,95 @@
 
     <form method="post" action="/prediksi" class="space-y-8">
 
-      <!-- Fitur Numerik -->
       <div>
         <h3 class="text-xs font-extrabold uppercase tracking-widest text-slate-400 mb-4">Data Numerik</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label class="block text-sm font-bold text-slate-700 mb-2">Umur Pasien <span class="text-slate-400 font-normal">(tahun)</span></label>
-            <input type="number" name="age" value="{{ data.age or 45 }}" min="1" max="120" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary outline-none">
+            <input type="number" name="age" value="{{ data.age or 45 }}" min="1" max="120" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all shadow-sm">
           </div>
           <div>
             <label class="block text-sm font-bold text-slate-700 mb-2">Detak Jantung Maks <span class="text-slate-400 font-normal">(thalach)</span></label>
-            <input type="number" name="thalach" value="{{ data.thalach or 150 }}" min="60" max="250" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary outline-none">
+            <input type="number" name="thalach" value="{{ data.thalach or 150 }}" min="60" max="250" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all shadow-sm">
           </div>
           <div>
             <label class="block text-sm font-bold text-slate-700 mb-2">Kolesterol <span class="text-slate-400 font-normal">(mg/dl)</span></label>
-            <input type="number" name="chol" value="{{ data.chol or 200 }}" min="100" max="600" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary outline-none">
+            <input type="number" name="chol" value="{{ data.chol or 200 }}" min="100" max="600" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all shadow-sm">
           </div>
           <div>
             <label class="block text-sm font-bold text-slate-700 mb-2">Tekanan Darah Istirahat <span class="text-slate-400 font-normal">(trestbps, mmHg)</span></label>
-            <input type="number" name="trestbps" value="{{ data.trestbps or 120 }}" min="80" max="250" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary outline-none">
+            <input type="number" name="trestbps" value="{{ data.trestbps or 120 }}" min="80" max="250" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all shadow-sm">
           </div>
           <div class="md:col-span-2">
-            <label class="block text-sm font-bold text-slate-700 mb-2">ST Depression <span class="text-slate-400 font-normal">(oldpeak)</span></label>
-            <input type="number" step="0.1" name="oldpeak" value="{{ data.oldpeak or 0.0 }}" min="0" max="10" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-primary outline-none">
+            <label class="block text-sm font-bold text-slate-700 mb-2">Tingkat Penurunan Grafik EKG Saat Uji Latih Jantung <span class="text-slate-400 font-normal">(oldpeak)</span></label>
+            <input type="number" step="0.1" name="oldpeak" value="{{ data.oldpeak or 0.0 }}" min="0" max="10" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all shadow-sm">
           </div>
         </div>
       </div>
 
       <div class="h-px bg-slate-200"></div>
 
-      <!-- Fitur Kategorikal -->
       <div>
         <h3 class="text-xs font-extrabold uppercase tracking-widest text-slate-400 mb-4">Data Kategorikal</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
           <div>
-            <label class="block text-sm font-bold text-slate-700 mb-2">Tipe Nyeri Dada <span class="text-slate-400 font-normal">(cp)</span></label>
-            <select name="cp" class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none">
-              <option value="0" {% if data.cp=='0' %}selected{% endif %}>0 — Typical Angina</option>
-              <option value="1" {% if data.cp=='1' %}selected{% endif %}>1 — Atypical Angina</option>
-              <option value="2" {% if data.cp=='2' %}selected{% endif %}>2 — Non-anginal Pain</option>
-              <option value="3" {% if data.cp=='3' %}selected{% endif %}>3 — Asymptomatic</option>
-            </select>
+            <label class="block text-sm font-bold text-slate-700 mb-2">Kondisi/Tipe Nyeri Dada yang Dirasakan <span class="text-slate-400 font-normal"><br>(cp)</span></label>
+            <div class="relative">
+              <select name="cp" class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none appearance-none pr-10 focus:border-primary focus:ring-4 focus:ring-primary/10 bg-white text-slate-700 font-medium transition-all cursor-pointer shadow-sm hover:border-slate-400">
+                <option value="0" {% if data.cp=='0' %}selected{% endif %}>0 — Tidak Ada Nyeri Dada (Asymptomatic)</option>
+                <option value="1" {% if data.cp=='1' %}selected{% endif %}>1 — Nyeri Ringan / Tidak Khas (Atypical Angina)</option>
+                <option value="2" {% if data.cp=='2' %}selected{% endif %}>2 — Nyeri Tajam menusuk / Bukan Jantung (Non-anginal Pain)</option>
+                <option value="3" {% if data.cp=='3' %}selected{% endif %}>3 — Nyeri Berat Khas Jantung, Menekan, Menjalar (Typical Angina)</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-slate-500">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+              </div>
+            </div>
           </div>
+
           <div>
-            <label class="block text-sm font-bold text-slate-700 mb-2">Jumlah Pembuluh Utama <span class="text-slate-400 font-normal">(ca)</span></label>
-            <select name="ca" class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none">
-              <option value="0" {% if data.ca=='0' %}selected{% endif %}>0</option>
-              <option value="1" {% if data.ca=='1' %}selected{% endif %}>1</option>
-              <option value="2" {% if data.ca=='2' %}selected{% endif %}>2</option>
-              <option value="3" {% if data.ca=='3' %}selected{% endif %}>3</option>
-            </select>
+            <label class="block text-sm font-bold text-slate-700 mb-2">Hasil Pemeriksaan Aliran Darah Jantung <span class="text-slate-400 font-normal">(Thalassemia/Grafik, thal)</span></label>
+            <div class="relative">
+              <select name="thal" class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none appearance-none pr-10 focus:border-primary focus:ring-4 focus:ring-primary/10 bg-white text-slate-700 font-medium transition-all cursor-pointer shadow-sm hover:border-slate-400">
+                <option value="1" {% if data.thal=='1' %}selected{% endif %}>1 — Aliran Darah Normal</option>
+                <option value="2" {% if data.thal=='2' %}selected{% endif %}>2 — Cacat Permanen (Pernah Ada Sumbatan)</option>
+                <option value="3" {% if data.thal=='3' %}selected{% endif %}>3 — Cacat Reversibel (Kurang Lancar Saat Aktivitas)</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-slate-500">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+              </div>
+            </div>
           </div>
+
           <div>
-            <label class="block text-sm font-bold text-slate-700 mb-2">Thalassemia <span class="text-slate-400 font-normal">(thal)</span></label>
-            <select name="thal" class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none">
-              <option value="1" {% if data.thal=='1' %}selected{% endif %}>1 — Normal</option>
-              <option value="2" {% if data.thal=='2' %}selected{% endif %}>2 — Fixed Defect</option>
-              <option value="3" {% if data.thal=='3' %}selected{% endif %}>3 — Reversable Defect</option>
-            </select>
+            <label class="block text-sm font-bold text-slate-700 mb-2">Jumlah Pembuluh Darah Utama yang Terbuka Normal <span class="text-slate-400 font-normal">(ca)</span></label>
+            <div class="relative">
+              <select name="ca" class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none appearance-none pr-10 focus:border-primary focus:ring-4 focus:ring-primary/10 bg-white text-slate-700 font-medium transition-all cursor-pointer shadow-sm hover:border-slate-400">
+                <option value="0" {% if data.ca=='0' %}selected{% endif %}>0 — Saluran Tersumbat Total</option>
+                <option value="1" {% if data.ca=='1' %}selected{% endif %}>1 — Terbuka 1 Pembuluh Darah</option>
+                <option value="2" {% if data.ca=='2' %}selected{% endif %}>2 — Terbuka 2 Pembuluh Darah</option>
+                <option value="3" {% if data.ca=='3' %}selected{% endif %}>3 — Terbuka 3 Pembuluh Darah (Normal)</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-slate-500">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+              </div>
+            </div>
           </div>
+
           <div>
-            <label class="block text-sm font-bold text-slate-700 mb-2">Angina saat Olahraga <span class="text-slate-400 font-normal">(exang)</span></label>
-            <select name="exang" class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none">
-              <option value="0" {% if data.exang=='0' %}selected{% endif %}>0 — Tidak</option>
-              <option value="1" {% if data.exang=='1' %}selected{% endif %}>1 — Ya</option>
-            </select>
+            <label class="block text-sm font-bold text-slate-700 mb-2">Apakah Dada Terasa Nyeri Saat Beraktivitas Fisik/Olahraga? <span class="text-slate-400 font-normal">(exang)</span></label>
+            <div class="relative">
+              <select name="exang" class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none appearance-none pr-10 focus:border-primary focus:ring-4 focus:ring-primary/10 bg-white text-slate-700 font-medium transition-all cursor-pointer shadow-sm hover:border-slate-400">
+                <option value="0" {% if data.exang=='0' %}selected{% endif %}>0 — Tidak Mengalami Nyeri</option>
+                <option value="1" {% if data.exang=='1' %}selected{% endif %}>1 — Ya, Dada Terasa Nyeri/Sesak</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-slate-500">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
 
