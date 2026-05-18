@@ -1,64 +1,227 @@
 {% extends 'base.html' %}
 {% block content %}
-<style>
-  .info-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(15, 112, 222, 0.02) 100%);
-  }
-</style>
 
-<div class="max-w-5xl mx-auto">
-  <div class="info-card rounded-3xl p-10 shadow-lg border border-slate-200">
-    <h1 class="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">ℹ️ Informasi Model Heart-Sync</h1>
-    <p class="text-lg text-slate-600 font-medium mt-6 leading-relaxed">Heart-Sync menggunakan model <strong>Random Forest</strong> yang dilatih pada dataset kesehatan jantung komprehensif. Hasil prediksi menggabungkan analisis data medis dengan penilaian faktor gaya hidup untuk akurasi maksimal.</p>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-      <div class="bg-gradient-to-br from-primary/5 to-primary/10 p-8 rounded-2xl border-2 border-primary/30">
-        <h4 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2">📊 Parameter Medis Utama</h4>
-        <ul class="space-y-3">
-          <li class="flex items-center gap-3 text-slate-700 font-semibold"><span class="text-primary">✓</span> Umur (Age)</li>
-          <li class="flex items-center gap-3 text-slate-700 font-semibold"><span class="text-primary">✓</span> Jenis Kelamin (Sex)</li>
-          <li class="flex items-center gap-3 text-slate-700 font-semibold"><span class="text-primary">✓</span> Tekanan Darah Istirahat</li>
-          <li class="flex items-center gap-3 text-slate-700 font-semibold"><span class="text-primary">✓</span> Kolesterol (Cholesterol)</li>
-          <li class="flex items-center gap-3 text-slate-700 font-semibold"><span class="text-primary">✓</span> Gula Darah Puasa (FBS)</li>
-        </ul>
+<div class="max-w-5xl mx-auto space-y-8 px-4 lg:px-0">
+
+  <div class="text-center py-6">
+    <div class="text-xs font-bold tracking-widest text-primary uppercase mb-2">Heart-Sync · Model Info</div>
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
+      Informasi Model Machine Learning
+    </h1>
+    <p class="text-sm sm:text-base text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
+      Heart-Sync menggunakan model <span class="text-primary font-bold">Random Forest</span> yang dilatih pada <strong
+        class="text-slate-800 font-bold">1.025 data klinis jantung</strong>.
+      Model memproses <span class="text-primary font-bold">9 fitur klinis terpilih</span> hasil seleksi <span
+        class="italic text-slate-800 font-semibold">feature importance</span> untuk menghasilkan prediksi risiko
+      penyakit jantung yang akurat.
+    </p>
+  </div>
+
+  <!-- Model Metrics -->
+  <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-sm">
+    <div class="text-xs font-bold tracking-widest text-primary uppercase mb-2">Performa Model</div>
+    <h2 class="text-xl sm:text-2xl font-bold text-slate-800 mb-6 sm:mb-8">Metrik Evaluasi — RF Final (Tuned, 9 Fitur)</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+      <div
+        class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">97.0%
+        </div>
+        <div class="text-xs font-bold text-slate-600 mt-2">Accuracy</div>
       </div>
-
-      <div class="bg-gradient-to-br from-secondary/5 to-secondary/10 p-8 rounded-2xl border-2 border-secondary/30">
-        <h4 class="text-2xl font-bold text-secondary mb-6 flex items-center gap-2">🏃 Faktor Gaya Hidup</h4>
-        <p class="text-slate-700 font-medium leading-relaxed">Prediksi juga mempertimbangkan kebiasaan merokok, konsumsi alkohol, frekuensi olahraga, pola makan, dan riwayat kesehatan untuk hasil yang lebih komprehensif dan relevan dengan kondisi pasien.</p>
+      <div
+        class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">98.1%
+        </div>
+        <div class="text-xs font-bold text-slate-600 mt-2">Recall</div>
+      </div>
+      <div
+        class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">96.2%
+        </div>
+        <div class="text-xs font-bold text-slate-600 mt-2">Precision</div>
+      </div>
+      <div
+        class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">97.1%
+        </div>
+        <div class="text-xs font-bold text-slate-600 mt-2">F1-Score</div>
+      </div>
+      <div
+        class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">99.5%
+        </div>
+        <div class="text-xs font-bold text-slate-600 mt-2">ROC-AUC</div>
+      </div>
+      <div
+        class="border-t-4 border-primary bg-white border border-slate-200 rounded-xl p-3 sm:p-4 text-center hover:shadow-lg hover:-translate-y-1 transition">
+        <div class="text-2xl sm:text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">98.3%
+        </div>
+        <div class="text-xs font-bold text-slate-600 mt-2">CV Recall</div>
       </div>
     </div>
+    <p class="text-xs text-slate-400 font-medium mt-6">
+      * Dievaluasi pada test set 202 data · 5-Fold Stratified Cross Validation · dataset: 1.025 baris
+    </p>
+  </div>
 
-    <div class="mt-10 bg-gradient-to-br from-slate-50 to-slate-100 border-l-4 border-primary p-8 rounded-2xl">
-      <h4 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">🔬 Bagaimana Hasil Dihitung?</h4>
-      <div class="space-y-6">
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">1</div>
-          <div>
-            <h5 class="font-bold text-slate-900 text-lg">Prediksi ML</h5>
-            <p class="text-slate-700 font-medium mt-1">Model Random Forest memproses 5 parameter medis utama untuk menghasilkan probabilitas risiko penyakit jantung.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center font-bold">2</div>
-          <div>
-            <h5 class="font-bold text-slate-900 text-lg">Skor Gaya Hidup</h5>
-            <p class="text-slate-700 font-medium mt-1">Sistem penilaian terintegrasi menganalisis 10+ faktor gaya hidup dan riwayat kesehatan untuk konteks yang lebih baik.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">3</div>
-          <div>
-            <h5 class="font-bold text-slate-900 text-lg">Hasil Akhir</h5>
-            <p class="text-slate-700 font-medium mt-1">Dua skor digabungkan dengan bobot 70% untuk ML dan 30% untuk gaya hidup, menghasilkan estimasi risiko komprehensif.</p>
-          </div>
+  <!-- 9 Selected Features -->
+  <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-sm">
+    <div class="text-xs font-bold tracking-widest text-primary uppercase mb-2">Input Model</div>
+    <h2 class="text-xl sm:text-2xl font-bold text-slate-800 mb-2">9 Fitur Klinis Terpilih</h2>
+    <p class="text-slate-600 font-medium text-sm mb-6">
+      Dipilih menggunakan Feature Importance dari RF Baseline (threshold ≥ 0.05) dari 13 fitur awal. Fitur diurutkan
+      berdasarkan tingkat kepentingannya terhadap prediksi.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div
+        class="flex items-center gap-3 border border-slate-300 rounded-xl p-3 hover:border-primary hover:shadow-md hover:-translate-y-0.5 transition bg-white">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 text-white text-lg">
+          🫀</div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-bold text-slate-800 truncate">Tipe Nyeri Dada</div>
+          <div class="text-xs text-slate-400">cp · importance 0.167</div>
         </div>
       </div>
-    </div>
-
-    <div class="mt-10 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-300 rounded-2xl">
-      <p class="text-sm text-yellow-900 font-semibold flex items-start gap-3"><span class="text-2xl">⚠️</span><span><strong>Penting:</strong> Aplikasi ini untuk skrining mandiri dan edukasi kesehatan. Selalu konsultasikan hasil dengan dokter spesialis untuk diagnosis dan rekomendasi medis yang akurat dan profesional.</span></p>
+      <div
+        class="flex items-center gap-3 border border-slate-300 rounded-xl p-3 hover:border-primary hover:shadow-md hover:-translate-y-0.5 transition bg-white">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 text-white text-lg">
+          💓</div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-bold text-slate-800 truncate">Detak Jantung Maks</div>
+          <div class="text-xs text-slate-400">thalach · importance 0.133</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 border border-slate-300 rounded-xl p-3 hover:border-primary hover:shadow-md hover:-translate-y-0.5 transition bg-white">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 text-white text-lg">
+          🩸</div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-bold text-slate-800 truncate">Pembuluh Utama</div>
+          <div class="text-xs text-slate-400">ca · importance 0.130</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 border border-slate-300 rounded-xl p-3 hover:border-primary hover:shadow-md hover:-translate-y-0.5 transition bg-white">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 text-white text-lg">
+          🧬</div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-bold text-slate-800 truncate">Thalassemia</div>
+          <div class="text-xs text-slate-400">thal · importance 0.119</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 border border-slate-300 rounded-xl p-3 hover:border-primary hover:shadow-md hover:-translate-y-0.5 transition bg-white">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 text-white text-lg">
+          📉</div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-bold text-slate-800 truncate">Depresi ST</div>
+          <div class="text-xs text-slate-400">oldpeak · importance 0.100</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 border border-slate-300 rounded-xl p-3 hover:border-primary hover:shadow-md hover:-translate-y-0.5 transition bg-white">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 text-white text-lg">
+          👤</div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-bold text-slate-800 truncate">Usia</div>
+          <div class="text-xs text-slate-400">age · importance 0.080</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 border border-slate-300 rounded-xl p-3 hover:border-primary hover:shadow-md hover:-translate-y-0.5 transition bg-white">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 text-white text-lg">
+          🏃</div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-bold text-slate-800 truncate">Angina Olahraga</div>
+          <div class="text-xs text-slate-400">exang · importance 0.066</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 border border-slate-300 rounded-xl p-3 hover:border-primary hover:shadow-md hover:-translate-y-0.5 transition bg-white">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 text-white text-lg">
+          🧪</div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-bold text-slate-800 truncate">Kolesterol</div>
+          <div class="text-xs text-slate-400">chol · importance 0.057</div>
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 border border-slate-300 rounded-xl p-3 hover:border-primary hover:shadow-md hover:-translate-y-0.5 transition bg-white">
+        <div
+          class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 text-white text-lg">
+          🩺</div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-bold text-slate-800 truncate">Tekanan Darah</div>
+          <div class="text-xs text-slate-400">trestbps · importance 0.056</div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- Prediction Flow -->
+  <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-8 shadow-sm">
+    <div class="text-xs font-bold tracking-widest text-primary uppercase mb-2">Cara Kerja</div>
+    <h2 class="text-xl sm:text-2xl font-bold text-slate-800 mb-6 sm:mb-8">Alur Prediksi Heart-Sync</h2>
+    <div class="space-y-4">
+      <div
+        class="border border-slate-200 rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start hover:shadow-md hover:border-primary/50 transition">
+        <div
+          class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 font-bold text-white text-lg">
+          1</div>
+        <div>
+          <h5 class="font-bold text-slate-900 text-base mb-1">Input 9 Parameter Klinis</h5>
+          <p class="text-slate-600 font-medium text-sm">Pengguna mengisi data klinis pada form prediksi: tipe nyeri
+            dada, detak jantung maks, jumlah pembuluh utama, thalassemia, depresi ST, usia, angina saat olahraga,
+            kolesterol, dan tekanan darah istirahat.</p>
+        </div>
+      </div>
+      <div
+        class="border border-slate-200 rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start hover:shadow-md hover:border-primary/50 transition">
+        <div
+          class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-700 to-primary flex items-center justify-center flex-shrink-0 font-bold text-white text-lg">
+          2</div>
+        <div>
+          <h5 class="font-bold text-slate-900 text-base mb-1">Proses Model Random Forest</h5>
+          <p class="text-slate-600 font-medium text-sm">Model RF Final (100 estimator, max_depth=10,
+            class_weight=balanced) memproses 9 fitur dan menghasilkan probabilitas risiko penyakit jantung melalui
+            voting dari seluruh pohon keputusan.</p>
+        </div>
+      </div>
+      <div
+        class="border border-slate-200 rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start hover:shadow-md hover:border-primary/50 transition">
+        <div
+          class="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-red-600 flex items-center justify-center flex-shrink-0 font-bold text-white text-lg">
+          3</div>
+        <div>
+          <h5 class="font-bold text-slate-900 text-base mb-1">Hasil Klasifikasi</h5>
+          <p class="text-slate-600 font-medium text-sm">Probabilitas &gt; 50% → <strong class="text-red-600">Risiko
+              Tinggi</strong>. Probabilitas ≤ 50% → <strong class="text-emerald-600">Risiko Rendah</strong>. Ditampilkan
+            beserta persentase probabilitas dan pesan rekomendasi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Warning -->
+  <div
+    class="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-300 rounded-2xl p-5 flex flex-col sm:flex-row gap-3 sm:gap-4 items-start shadow-sm">
+    <span class="text-3xl flex-shrink-0 mt-0.5">⚠️</span>
+    <p class="text-sm text-yellow-900 font-semibold leading-relaxed">
+      <strong>Penting:</strong> Aplikasi ini dirancang untuk keperluan skrining mandiri dan edukasi kesehatan berbasis
+      machine learning.
+      Hasil prediksi <strong>bukan merupakan diagnosis medis</strong>. Selalu konsultasikan hasil dengan dokter
+      spesialis untuk
+      diagnosis dan rekomendasi penanganan yang akurat dan profesional.
+    </p>
+  </div>
+
 </div>
 {% endblock %}

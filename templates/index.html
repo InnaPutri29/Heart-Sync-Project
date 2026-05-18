@@ -20,10 +20,12 @@
     color: white;
   }
 
+  /* Modifikasi di bawah ini meningkatkan ketebalan & batas kartu agar kontras dengan BG */
   .glass-card {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.95); /* Menurunkan transparansi agar warna putih lebih solid */
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid #e2e8f0; /* Mengubah dari putih transparan ke abu-abu slate terang agar garis batas lebih tegas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* Menambahkan bayangan halus bawaan agar kartu "timbul" */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
@@ -65,23 +67,23 @@
 <!-- Hero Section -->
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
   <div>
-    <h1 class="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
       Prediksi Risiko <br><span class="text-gradient">Penyakit Jantung</span>
     </h1>
-    <p class="text-lg text-slate-600 font-medium mb-8 max-w-2xl">
+    <p class="text-base sm:text-lg text-slate-600 font-medium mb-8 max-w-2xl">
       Optimalkan kesehatan Anda dengan <strong>Heart-Sync</strong>. Platform cerdas berbasis <i>Random Forest Machine Learning</i> untuk deteksi dini yang akurat, cepat, dan mudah dipahami.
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4 mb-12">
-      <a href="/prediksi" class="btn-primary-gradient px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition">
+      <a href="/prediksi" class="btn-primary-gradient px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition text-center text-white text-sm sm:text-base">
         🚀 Mulai Analisis Sekarang
       </a>
-      <a href="/info" class="px-8 py-3 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition">
+      <a href="/info" class="px-8 py-3 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition text-center text-sm sm:text-base">
         📚 Pelajari Model AI
       </a>
     </div>
 
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div class="glass-card p-4 rounded-2xl text-center lg:text-left">
         <h2 class="text-3xl font-bold text-primary mb-0">97%</h2>
         <p class="text-slate-600 font-semibold text-sm mb-0">Akurasi Model</p>
@@ -97,31 +99,34 @@
     </div>
   </div>
 
-  <div class="text-center">
+  <div class="text-center mt-8 lg:mt-0">
     <img src="https://pharmaphorum.com/wp-content/uploads/2022/05/Healthcare-communication.jpg" alt="Ilustrasi Pemeriksaan Kesehatan Jantung" class="hero-image">
   </div>
 </div>
 
 <!-- Features Section -->
 <div class="mt-20 pt-12 border-t border-slate-200">
-  <div class="text-center mb-12">
-    <h2 class="text-4xl font-bold text-slate-900">Keunggulan Heart-Sync</h2>
+  <div class="text-center mb-12 ">
+    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Keunggulan Heart-Sync</h2>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
     <div class="glass-card p-8 rounded-2xl text-center h-full">
       <span class="text-5xl mb-4 block">🎨</span>
       <h4 class="text-xl font-bold mb-3">Antarmuka Modern</h4>
-      <p class="text-slate-600 font-medium">Desain elegan yang bersih dan profesional, dirancang khusus untuk kenyamanan pengguna di bidang medis.</p>
+      <!-- Copywriting disederhanakan -->
+      <p class="text-slate-600 font-medium text-sm leading-relaxed">Desain bersih, minimalis, dan intuitif yang dirancang untuk kemudahan navigasi pengguna.</p>
     </div>
     <div class="glass-card p-8 rounded-2xl text-center h-full border-2 border-primary">
       <span class="text-5xl mb-4 block">🔬</span>
       <h4 class="text-xl font-bold mb-3">Analisis Komprehensif</h4>
-      <p class="text-slate-600 font-medium">Menggabungkan parameter klinis utama (Tekanan darah, Kolesterol) untuk hasil klasifikasi yang lebih stabil.</p>
+      <!-- Copywriting disederhanakan -->
+      <p class="text-slate-600 font-medium text-sm leading-relaxed">Menggunakan berbagai parameter klinis penting seperti tekanan darah dan kolesterol untuk hasil evaluasi.</p>
     </div>
     <div class="glass-card p-8 rounded-2xl text-center h-full">
       <span class="text-5xl mb-4 block">🩺</span>
       <h4 class="text-xl font-bold mb-3">Skrining Mandiri</h4>
-      <p class="text-slate-600 font-medium">Solusi preventif cerdas yang membantu Anda melakukan pengecekan kesehatan awal tanpa biaya.</p>
+      <!-- Copywriting disederhanakan -->
+      <p class="text-slate-600 font-medium text-sm leading-relaxed">Membantu melakukan pengecekan awal kesehatan jantung secara mandiri kapan saja.</p>
     </div>
   </div>
 </div>

@@ -1,60 +1,139 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <style>
   .team-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(13, 202, 240, 0.02) 100%);
-    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(13, 202, 240, 0.03) 100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   .team-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(15, 112, 222, 0.15);
+    border-color: #0f70de;
+  }
+
+  .academic-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
   }
 </style>
 
-<div class="max-w-5xl mx-auto">
-  <div class="text-center mb-12">
-    <h1 class="text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">👥 Profil Tim Heart-Sync</h1>
-    <p class="text-xl text-slate-600 font-medium max-w-3xl mx-auto leading-relaxed">Tim ini berkomitmen untuk menyajikan solusi kesehatan jantung berbasis teknologi AI dengan pengalaman pengguna yang intuitif, informatif, dan dapat diandalkan untuk mendukung deteksi dini penyakit jantung.</p>
+<div class="max-w-5xl mx-auto px-4 lg:px-0 space-y-10 animate-fade-in-up">
+
+  <div class="text-center py-6">
+    <div class="text-xs font-bold tracking-widest text-primary uppercase mb-2">Heart-Sync · Kelompok 1</div>
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
+      👥 Profil Tim Heart-Sync
+    </h1>
+    <p class="text-sm sm:text-base text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
+      Tim yang berkomitmen menghadirkan solusi deteksi dini penyakit jantung berbasis Machine Learning yang akurat,
+      informatif, dan mudah diakses oleh semua kalangan.
+    </p>
+  </div>
+
+    <div
+      class="grid grid-cols-1 gap-4 bg-gradient-to-r from-white via-slate-50/30 to-white rounded-2xl border border-slate-200/80 p-5 shadow-sm sm:grid-cols-2 lg:grid-cols-3 lg:gap-0 lg:divide-x lg:divide-slate-100">
+      <div
+        class="group flex items-center gap-4 py-2 transition duration-300 hover:translate-x-1 lg:px-6 lg:hover:-translate-y-0.5 lg:hover:translate-x-0">
+        <div
+          class="bg-primary/10 text-primary shadow-primary/5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-base shadow-sm transition duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <div class="flex min-w-0 flex-col">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Mata Kuliah</span>
+          <span
+            class="text-sm font-bold text-slate-800 truncate transition duration-200 group-hover:text-primary">Artificial
+            Intelligence</span>
+        </div>
+      </div>
+      <div
+        class="group flex items-center gap-4 py-2 transition duration-300 hover:translate-x-1 lg:px-6 lg:hover:-translate-y-0.5 lg:hover:translate-x-0">
+        <div
+          class="bg-secondary/10 text-secondary shadow-secondary/5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-base shadow-sm transition duration-300 group-hover:scale-110 group-hover:bg-secondary group-hover:text-white">
+          <i class="fa-solid fa-laptop-code"></i>
+        </div>
+        <div class="flex min-w-0 flex-col">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Program Studi</span>
+          <span
+            class="text-sm font-bold text-slate-800 truncate transition duration-200 group-hover:text-secondary">Teknologi
+            Informasi</span>
+        </div>
+      </div>
+      <div
+        class="group flex items-center gap-4 py-2 transition duration-300 hover:translate-x-1 lg:px-6 lg:hover:-translate-y-0.5 lg:hover:translate-x-0">
+        <div
+          class="bg-primary/10 text-primary shadow-primary/5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-base shadow-sm transition duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+          <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <div class="flex min-w-0 flex-col">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Fakultas & Univ</span>
+          <span
+            class="text-sm font-bold text-slate-800 truncate transition duration-200 group-hover:text-primary">Fakultas
+            Teknik · UNY</span>
+        </div>
+      </div>
+
   </div>
   
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-    <div class="team-card p-8 rounded-2xl shadow-lg border border-slate-200">
-      <div class="text-6xl mb-6 text-center">💻</div>
-      <h5 class="text-2xl font-bold text-slate-900 mb-3 text-center">Pengembang</h5>
-      <p class="text-primary font-bold text-center mb-3">Pengembangan Full Stack</p>
-      <p class="text-slate-600 font-medium text-center">Membangun aplikasi Flask yang responsif dan integrasi seamless dengan model Machine Learning untuk pengalaman pengguna terbaik.</p>
+  <div
+    class="team-card p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center gap-6 bg-white">
+    <div
+      class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-700 to-primary flex items-center justify-center text-3xl shadow-md flex-shrink-0 text-white">
+      👨‍🏫
     </div>
-
-    <div class="team-card p-8 rounded-2xl shadow-lg border border-slate-200 transform scale-105">
-      <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-primary to-secondary text-white px-4 py-1 rounded-full text-xs font-bold">
-        Tim Utama
-      </div>
-      <div class="text-6xl mb-6 text-center">📊</div>
-      <h5 class="text-2xl font-bold text-slate-900 mb-3 text-center">Data Scientist</h5>
-      <p class="text-secondary font-bold text-center mb-3">Analisis & Machine Learning</p>
-      <p class="text-slate-600 font-medium text-center">Pelatihan model Random Forest, validasi akurasi 99%, dan continuous improvement untuk hasil prediksi yang optimal dan terpercaya.</p>
-    </div>
-
-    <div class="team-card p-8 rounded-2xl shadow-lg border border-slate-200">
-      <div class="text-6xl mb-6 text-center">🎨</div>
-      <h5 class="text-2xl font-bold text-slate-900 mb-3 text-center">UI/UX Designer</h5>
-      <p class="text-accent font-bold text-center mb-3">Desain & Antarmuka</p>
-      <p class="text-slate-600 font-medium text-center">Menciptakan pengalaman pengguna yang elegan, intuitif, dan responsif di semua perangkat untuk kemudahan penggunaan maksimal.</p>
+    <div class="text-center sm:text-left">
+      <div class="text-xs font-bold tracking-widest text-primary uppercase mb-1">Dosen Pengampu</div>
+      <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">Dr. Ir. Fatchul Arifin, M.T.</h3>
+      <p class="text-slate-500 font-medium text-xs mt-1 leading-relaxed">
+        Teknologi Informasi · Fakultas Teknik · Universitas Negeri Yogyakarta
+      </p>
     </div>
   </div>
 
-  <div class="bg-gradient-to-br from-primary/5 to-secondary/5 border-2 border-primary/20 p-12 rounded-3xl shadow-lg">
-    <h4 class="text-4xl font-bold text-slate-900 mb-10 text-center">🎯 Visi & Misi</h4>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-      <div class="bg-white p-8 rounded-2xl shadow-md border-l-4 border-primary">
-        <h5 class="text-2xl font-bold text-primary mb-4">✨ Visi</h5>
-        <p class="text-slate-700 font-medium leading-relaxed">Menjadi solusi terdepan dalam deteksi dini penyakit jantung melalui teknologi AI yang accessible, terjangkau, dan mudah digunakan untuk semua kalangan masyarakat tanpa terkecuali.</p>
+  <div>
+    <div class="text-xs font-bold tracking-widest text-primary uppercase text-center mb-7">Kolaborator Utama</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <div
+        class="team-card p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm text-center relative overflow-hidden bg-white">
+        <div class="absolute -top-1 left-0 right-0 h-1.5 bg-gradient-to-r from-primary to-secondary"></div>
+        <div
+          class="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-4xl mx-auto mb-4 shadow-lg text-white">
+          👩‍💻
+        </div>
+        <h4 class="text-xl sm:text-2xl font-extrabold text-slate-900">Inna Putri Meida</h4>
+        <div
+          class="inline-block bg-blue-50 text-primary text-xs font-bold px-4 py-1 rounded-full border border-blue-200 mt-2 tracking-wide">
+          NIM. 23051130027
+        </div>
+        <p class="text-slate-500 font-medium text-xs mt-4 leading-relaxed">
+          Teknologi Informasi<br>
+          <span class="text-slate-400">Fakultas Teknik · Universitas Negeri Yogyakarta</span>
+        </p>
       </div>
-      <div class="bg-white p-8 rounded-2xl shadow-md border-l-4 border-secondary">
-        <h5 class="text-2xl font-bold text-secondary mb-4">🚀 Misi</h5>
-        <p class="text-slate-700 font-medium leading-relaxed">Memberdayakan masyarakat dengan alat skrining kesehatan yang akurat, mudah digunakan, dan gratis untuk meningkatkan kesadaran kesehatan preventif dan deteksi dini penyakit jantung.</p>
+
+      <div
+        class="team-card p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm text-center relative overflow-hidden bg-white">
+        <div class="absolute -top-1 left-0 right-0 h-1.5 bg-gradient-to-r from-primary to-secondary"></div>
+        <div
+          class="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-4xl mx-auto mb-4 shadow-lg text-white">
+          👩‍💻
+        </div>
+        <h4 class="text-xl sm:text-2xl font-extrabold text-slate-900">Ngafifah Rahma Syadza</h4>
+        <div
+          class="inline-block bg-blue-50 text-primary text-xs font-bold px-4 py-1 rounded-full border border-blue-200 mt-2 tracking-wide">
+          NIM. 23051130030
+        </div>
+        <p class="text-slate-500 font-medium text-xs mt-4 leading-relaxed">
+          Teknologi Informasi<br>
+          <span class="text-slate-400">Fakultas Teknik · Universitas Negeri Yogyakarta</span>
+        </p>
       </div>
+
     </div>
   </div>
 </div>
+
 {% endblock %}

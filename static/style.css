@@ -1,97 +1,46 @@
-:root {
-  --primary: #0f70de;
-  --secondary: #0dcaf0;
-  --accent: #9e1522;
-}
+/* style.css - Versi Optimal & Clean */
 
 * {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
-body {
-  background-color: #f8fafc;
-}
-
-/* Primary Color Variants */
-.text-primary {
-  color: #0f70de;
-}
-
-.bg-primary {
-  background-color: #0f70de;
-}
-
-.border-primary {
-  border-color: #0f70de;
-}
-
-.hover\:bg-primary:hover {
-  background-color: #0f70de;
-}
-
-/* Secondary Color Variants */
-.text-secondary {
-  color: #0dcaf0;
-}
-
-.bg-secondary {
-  background-color: #0dcaf0;
-}
-
-/* Accent Color Variants */
-.text-accent {
-  color: #9e1522;
-}
-
-.bg-accent {
-  background-color: #9e1522;
-}
-
-/* Focus Ring Styles */
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  ring: 2px solid #0f70de;
-}
-
-/* Custom Scrollbar - Transparent */
+/* Custom Scrollbar - Membuat tampilan website lebih bersih & seamless */
 ::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 4px;
+    background: transparent;
+    border-radius: 4px;
 }
 
-/* Smooth Transitions */
+/* Smooth Transitions untuk semua tombol dan link */
 a, button {
-  transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-/* Selection Color */
+/* Warna saat teks diblok/diseleksi oleh user */
 ::selection {
-  background-color: #0f70de;
-  color: white;
+    background-color: #0f70de;
+    color: white;
 }
 
-/* Form Elements */
+/* Standarisasi Form & Input Ring Biru Estetik */
 input[type="text"],
 input[type="email"],
 input[type="number"],
 input[type="password"],
 select,
 textarea {
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="text"]:focus,
@@ -100,76 +49,56 @@ input[type="number"]:focus,
 input[type="password"]:focus,
 select:focus,
 textarea:focus {
-  border-color: #0f70de;
-  box-shadow: 0 0 0 3px rgba(15, 112, 222, 0.1);
+    outline: none;
+    border-color: #0f70de;
+    box-shadow: 0 0 0 3px rgba(15, 112, 222, 0.1);
 }
 
-/* Checkbox Styling */
+/* Checkbox warna senada dengan tema */
 input[type="checkbox"] {
-  accent-color: #0f70de;
+    accent-color: #0f70de;
 }
 
-/* Animation Classes */
+/* Kumpulan Custom Animasi untuk Elemen UI */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease;
+    animation: fadeInUp 0.6s ease;
 }
 
 .animate-slide-in-right {
-  animation: slideInRight 0.6s ease;
+    animation: slideInRight 0.6s ease;
 }
 
-/* Utility Classes */
-.text-gradient {
-  background: linear-gradient(90deg, #0f70de, #0dcaf0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.shadow-soft {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.shadow-medium {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.shadow-large {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive Typography */
+/* Tipografi Responsif Global untuk Layar HP */
 @media (max-width: 640px) {
-  h1 {
-    font-size: 1.875rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  h3 {
-    font-size: 1.25rem;
-  }
+    h1 {
+        font-size: 1.875rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+    }
 }

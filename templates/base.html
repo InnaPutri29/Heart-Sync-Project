@@ -5,7 +5,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Heart-Sync</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f70de',
+                        secondary: '#0dcaf0',
+                        accent: '#9e1522',
+                    }
+                }
+            }
+        }
+    </script>
+
     <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="{{ url_for('static', filename='style.css') }}?t={{ config['TIMESTAMP'] }}" rel="stylesheet">
@@ -17,7 +33,6 @@
             --accent: #9e1522;
         }
 
-        /* Efek Transparan & Kaca untuk Navbar */
         .glass-navbar {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(12px);
@@ -36,7 +51,6 @@
             color: #0f70de !important;
         }
 
-        /* Tailwind config for custom colors */
         .text-primary { color: #0f70de; }
         .bg-primary { background-color: #0f70de; }
         .text-secondary { color: #0dcaf0; }
@@ -53,16 +67,36 @@
     <nav class="glass-navbar fixed top-0 left-0 right-0 z-50 w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
                 <a class="flex items-center font-bold text-primary hover:text-primary" href="/">
                     <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Heart-Sync" width="30" height="30" class="mr-2 rounded-full shadow-sm">
                     <span class="text-xl">Heart-Sync</span>
                 </a>
+                
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex gap-1">
                     <a href="/" class="nav-link px-4 py-2 rounded-lg transition {% if active_page == 'home' %}!text-primary bg-slate-100{% endif %}">Beranda</a>
                     <a href="/prediksi" class="nav-link px-4 py-2 rounded-lg transition {% if active_page == 'prediksi' %}!text-primary bg-slate-100{% endif %}">Prediksi</a>
                     <a href="/info" class="nav-link px-4 py-2 rounded-lg transition {% if active_page == 'info' %}!text-primary bg-slate-100{% endif %}">Info Model</a>
                     <a href="/team" class="nav-link px-4 py-2 rounded-lg transition {% if active_page == 'team' %}!text-primary bg-slate-100{% endif %}">Tim Kami</a>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-md border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="/" class="block px-3 py-2 rounded-md text-base font-medium nav-link {% if active_page == 'home' %}!text-primary bg-slate-100{% endif %}">Beranda</a>
+                <a href="/prediksi" class="block px-3 py-2 rounded-md text-base font-medium nav-link {% if active_page == 'prediksi' %}!text-primary bg-slate-100{% endif %}">Prediksi</a>
+                <a href="/info" class="block px-3 py-2 rounded-md text-base font-medium nav-link {% if active_page == 'info' %}!text-primary bg-slate-100{% endif %}">Info Model</a>
+                <a href="/team" class="block px-3 py-2 rounded-md text-base font-medium nav-link {% if active_page == 'team' %}!text-primary bg-slate-100{% endif %}">Tim Kami</a>
             </div>
         </div>
     </nav>
@@ -78,6 +112,16 @@
             <span class="text-accent">❤️</span> Heart-Sync &copy; 2026 · Deteksi dini risiko penyakit jantung menggunakan Machine Learning
         </div>
     </footer>
+
+    <!-- Script untuk Toggle Mobile Menu -->
+    <script>
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>
